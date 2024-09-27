@@ -1,0 +1,99 @@
+<div class="container">
+    <h2>Student Feedback Form</h2>
+    <form #feedbackForm="ngForm" (ngSubmit)="onSubmit(feedbackForm)" novalidate>
+      
+      <!-- Student Name -->
+      <div>
+        <label for="studentName">Student Name:</label>
+        <input
+          type="text"
+          id="studentName"
+          name="studentName"
+          [(ngModel)]="studentName"
+          required
+          placeholder="Enter your name"
+        />
+      </div>
+  
+      <!-- Batch Number -->
+      <div>
+        <label for="batchNumber">Batch Number:</label>
+        <input
+          type="number"
+          id="batchNumber"
+          name="batchNumber"
+          [(ngModel)]="batchNumber"
+          required
+          placeholder="Enter batch number"
+        />
+      </div>
+  
+      <!-- Gender -->
+      <div>
+        <label>Gender:</label><br>
+        <label>
+          <input type="radio" name="gender" [(ngModel)]="gender" value="male" required />
+          Male
+        </label>
+        <label>
+          <input type="radio" name="gender" [(ngModel)]="gender" value="female" required />
+          Female
+        </label>
+      </div>
+  
+      <!-- Birthdate -->
+      <div>
+        <label for="birthdate">Birthdate:</label>
+        <input
+          type="date"
+          id="birthdate"
+          name="birthdate"
+          [(ngModel)]="birthdate"
+          required
+        />
+      </div>
+  
+      <!-- Feedback -->
+      <div>
+        <label for="feedback">Feedback:</label>
+        <textarea
+          id="feedback"
+          name="feedback"
+          [(ngModel)]="feedbackText"
+          required
+          placeholder="Enter your feedback"
+        ></textarea>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="feedbackForm.invalid">Submit Feedback</button>
+    </form>
+  
+    <!-- Display Submitted Feedback -->
+    <div *ngIf="submittedFeedback.length > 0">
+      <h3>Submitted Feedback</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Batch Number</th>
+            <th>Gender</th>
+            <th>Birthdate</th>
+            <th>Age</th>
+            <th>Feedback</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let feedback of submittedFeedback">
+            <td>{{ feedback.name }}</td>
+            <td>{{ feedback.batch }}</td>
+            <td>{{ feedback.gender }}</td>
+            <td>{{ feedback.birthdate | date }}</td>
+            <td>{{ feedback.age }}</td>
+            <td>{{ feedback.feedback }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
