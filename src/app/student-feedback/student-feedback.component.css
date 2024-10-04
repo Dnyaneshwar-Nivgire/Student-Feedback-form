@@ -7,6 +7,7 @@
     border-radius: 5px; /* Rounded corners */
     background-color: #f9f9f9; /* Light background color */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: rgb(201, 190, 187);
 }
 
 /* Heading styles */
@@ -27,7 +28,7 @@ input[type="text"],
 input[type="number"],
 input[type="date"],
 textarea {
-    width: 100%; /* Full width inputs */
+    width: 96.5%; /* Full width inputs */
     padding: 10px; /* Padding for input fields */
     margin-bottom: 15px; /* Space below each input */
     border: 1px solid #ccc; /* Border around inputs */
